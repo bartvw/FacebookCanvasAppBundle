@@ -2,13 +2,27 @@
 
 ## Installation
 
-    $ git clone git@github.com:caefer/FacebookCanvasAppBundle.git src/Caefer/FacebookCanvasAppBundle
+    $ git clone git@github.com:caefer/FacebookCanvasAppBundle.git vendor/bundles/Caefer/FacebookCanvasAppBundle
     $ git clone https://github.com/facebook/php-sdk.git vendor/facebook
+
+Then make the vendor namespace known in `app/autoload.php`.
+
+    <?php
+    ..
+      'Caefer' => __DIR__.'/../vendor/bundles',
+    ..
+
+And make the bundle available in `app/AppKernel.php`.
+
+    <?php
+    ..
+      new Caefer\FacebookCanvasAppBundle\CaeferFacebookCanvasAppBundle(),
+    ..
 
 In your `app/config/config.yml` add this to the top to import the default firewall setup.
 
     imports:
-        - { resource: "../../src/Caefer/FacebookCanvasAppBundle/Resources/config/firewall.yml" }
+        - { resource: "../../vendor/bundles/Caefer/FacebookCanvasAppBundle/Resources/config/firewall.yml" }
 
 In the same file add access control patterns as it first your requirements. Note that these match from the top.
 

@@ -24,7 +24,8 @@ In your `app/config/config.yml` add this to the top to import the default firewa
     imports:
         - { resource: "../../vendor/bundles/Caefer/FacebookCanvasAppBundle/Resources/config/firewall.yml" }
 
-In the same file add access control patterns as it first your requirements. Note that these match from the top.
+In your `app/config/security.yml` (or `config.yml` if you want) add access control patterns as it first your requirements.
+> Note that these match from the top.
 
     security:
         access_control:

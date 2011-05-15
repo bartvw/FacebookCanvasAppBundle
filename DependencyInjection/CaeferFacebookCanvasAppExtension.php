@@ -39,6 +39,11 @@ class CaeferFacebookCanvasAppExtension extends Extension
             }
         } else {
 
+            if (!isset($config[0]) || !isset($config[0]['api']) || !isset($config[0]['api']['file']) || !isset($config[0]['api']['app_id']) || !sset($config[0]['api']['secret']))
+            {
+              throw new \Exception('please configure your app credentials!');
+            }
+
             $container->setParameter('caefer_facebook_canvas_app.api.file',   $config[0]['api']['file']);
             $container->setParameter('caefer_facebook_canvas_app.api.app_id', $config[0]['api']['app_id']);
             $container->setParameter('caefer_facebook_canvas_app.api.secret', $config[0]['api']['secret']);

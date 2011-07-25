@@ -2,7 +2,7 @@
 
 namespace Caefer\FacebookCanvasAppBundle\Controller;
 
-require_once __DIR__.'/../../../../vendor/facebook/src/facebook.php';
+//require_once __DIR__.'/../../../../vendor/facebook/src/facebook.php';
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

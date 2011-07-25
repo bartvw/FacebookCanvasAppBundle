@@ -50,7 +50,7 @@ class FacebookCanvasAppFactory extends AbstractFactory
 
         $container
             ->setDefinition($entryPointId, new DefinitionDecorator('caefer_facebook_canvas_app.security.authentication.entry_point'))
-            ->setArgument(1, $config)
+            ->replaceArgument(1, $config)
         ;
 
         // set options to container for use by other classes

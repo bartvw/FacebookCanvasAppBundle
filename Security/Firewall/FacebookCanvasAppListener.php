@@ -12,16 +12,17 @@ use Symfony\Component\Security\Core\Authentication\AuthenticationManagerInterfac
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Caefer\FacebookCanvasAppBundle\Security\Authentication\Token\FacebookCanvasAppToken;
+use Symfony\Component\Security\Http\HttpUtils;
 
 /**
  * Facebook authentication listener.
  */
 class FacebookCanvasAppListener extends AbstractAuthenticationListener
 {
-    public function __construct(SecurityContextInterface $securityContext, AuthenticationManagerInterface $authenticationManager, SessionAuthenticationStrategyInterface $sessionStrategy, $providerKey, array $options = array(), AuthenticationSuccessHandlerInterface $successHandler = null, AuthenticationFailureHandlerInterface $failureHandler = null, LoggerInterface $logger = null, EventDispatcherInterface $dispatcher = null)
+    public function __construct(SecurityContextInterface $securityContext, AuthenticationManagerInterface $authenticationManager, SessionAuthenticationStrategyInterface $sessionStrategy, HttpUtils $httpUtils, $providerKey, array $options = array(), AuthenticationSuccessHandlerInterface $successHandler = null, AuthenticationFailureHandlerInterface $failureHandler = null, LoggerInterface $logger = null, EventDispatcherInterface $dispatcher = null)
     {
         $options['use_referer'] = $options['use_referer'] ?: true;
-        parent::__construct($securityContext, $authenticationManager, $sessionStrategy, $providerKey, $options, $successHandler, $failureHandler, $logger, $dispatcher);
+        parent::__construct($securityContext, $authenticationManager, $sessionStrategy, $httpUtils, $providerKey, $options, $successHandler, $failureHandler, $logger, $dispatcher);
     }
 
     protected function attemptAuthentication(Request $request)

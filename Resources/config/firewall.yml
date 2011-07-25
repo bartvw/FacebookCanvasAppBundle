@@ -1,6 +1,6 @@
 security:
     factories:
-        - "%kernel.root_dir%/../src/Caefer/FacebookCanvasAppBundle/Resources/config/security_factories.xml"
+        - "%kernel.root_dir%/../vendor/bundles/Caefer/FacebookCanvasAppBundle/Resources/config/security_factories.xml"
     providers:
         caefer_facebook_canvas_app:
             id: caefer_facebook_canvas_app.auth
